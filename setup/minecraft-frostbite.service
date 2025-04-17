@@ -3,9 +3,9 @@ Description=Minecraft Bedrock Server Frostbite World
 After=network.target
 
 [Service]
-User=minecraft
-WorkingDirectory=/home/minecraft/bedrock-frostbite
-ExecStart=/home/minecraft/bedrock-frostbite/bedrock_server
+User=svc-minecraft-frostbite
+WorkingDirectory=/opt/minecraft/minecraft-frostbite
+ExecStart=/opt/minecraft/minecraft-frostbite/bedrock_server
 Restart=on-failure
 Nice=5
 

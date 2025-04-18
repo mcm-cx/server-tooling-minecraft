@@ -8,6 +8,7 @@ BACKUP_DIR='/opt/backup/minecraft'
 LOG_DIR='/opt/backup/logs'
 LOGFILE="$LOG_DIR/minecraft-$TIMESTAMP.log"
 RCLONE_REMOTE='onedrive-backup-mcm-cx:minecraft/jaedenar.mcm.cx'
+GIT_BACKUP='/opt/backup/backup-minecraft-jaedenar/worlds'
 
 # ToDo: array
 HOTEL_PATH='/minecraft-hotel'
@@ -68,6 +69,8 @@ rclone copy "$BACKUP_SOURCE/$FROSTBITE_PATH" "$RCLONE_REMOTE/frostbite/" --inclu
 
 #### clean up ####
 #rm -rf "$HOTEL_META_DIR" "$FROSTBITE_META_DIR"
+cp "$HOTEL_ZIP" "$GIT_BACKUP/hotel.tar.gz"
+cp "$FROSTBITE_ZIP" "$GIT_BACKUP/frostbite.tar.gz"
 rm -f "$HOTEL_ZIP" "$FROSTBITE_ZIP"
 
 echo "[✔] Backup finished: $TIMESTAMP"
